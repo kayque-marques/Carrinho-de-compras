@@ -39,3 +39,10 @@ function Adicionar() {
   function atualizarTotal() {
     valorTotal.textContent = `R$${total}`;
   }
+  window.addEventListener('DOMContentLoaded', () => {
+    const select = document.getElementById('produto');
+    const optionsArray = Array.from(select.options);
+    optionsArray.sort((a, b) => a.text.localeCompare(b.text));
+    select.innerHTML = '';
+    optionsArray.forEach(option => select.appendChild(option));
+});
